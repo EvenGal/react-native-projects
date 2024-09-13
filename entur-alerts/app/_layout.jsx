@@ -10,7 +10,7 @@ export default function RootLayout() {
           headerStyle: {
             backgroundColor: '#3D6DCC',
             paddingVertical: 20,
-            alignItems: 'center',
+            alignItems: 'left',
             justifyContent: 'center',
             shadowColor: '#000',
             shadowOffset: { width: 0, height: 2 },
@@ -27,11 +27,11 @@ export default function RootLayout() {
       <Stack.Screen
         name="help"
         options={{
-          title: "Siste varslinger",
+          title: "Hjelp",
           headerStyle: {
             backgroundColor: '#3D6DCC',
             paddingVertical: 20,
-            alignItems: 'center',
+            alignItems: 'right',
             justifyContent: 'center',
             shadowColor: '#000',
             shadowOffset: { width: 0, height: 2 },
