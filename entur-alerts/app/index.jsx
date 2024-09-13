@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
+import { SafeAreaView, FlatList, ActivityIndicator, StyleSheet, View, Text } from 'react-native';
 import axios from 'axios';
 import AlertItem from '../components/AlertItem';
 
-const App = () => {
+const HomePage = () => {
   const [alerts, setAlerts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -14,7 +14,11 @@ const App = () => {
           'Accept': 'application/json',
           'ET-Client-Name': 'entur-alerts',
         },
+        params: {
+          'datasetId': 'RUT',
+        }
       });
+
       const siriData = response.data?.Siri;
       const ptSituationElement = siriData.ServiceDelivery?.SituationExchangeDelivery?.[0]?.Situations?.PtSituationElement;
       
@@ -22,8 +26,9 @@ const App = () => {
         summary: element.Summary?.[0]?.value,
         description: element.Description?.[0]?.value,
       }));
-
+      
       setAlerts(alertsData);
+
     } catch (error) {
       console.error('Error fetching alerts:', error);
     } finally {
@@ -49,7 +54,7 @@ const App = () => {
         data={alerts}
         renderItem={({ item }) => (
           <AlertItem summary={item.summary} description={item.description}/>
-        )}
+        )} 
         keyExtractor={(item, index) => index.toString()}
         onRefresh={fetchAlerts}
         refreshing={loading}
@@ -68,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default HomePage;
