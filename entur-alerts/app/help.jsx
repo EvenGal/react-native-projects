@@ -7,17 +7,8 @@ const HelpPage = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerTitle}>Siste Varslinger</Text>
+        <Text style={styles.headerTitle}>Hjelpeside</Text>
       </View>
-      <FlatList
-        data={alerts}
-        renderItem={({ item }) => (
-          <AlertItem summary={item.summary} description={item.description}/>
-        )} 
-        keyExtractor={(item, index) => index.toString()}
-        onRefresh={fetchAlerts}
-        refreshing={loading}
-      />
     </SafeAreaView>
   );
 };
