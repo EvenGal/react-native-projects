@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/entur-alerts" 
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/job-listings" 
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/weather-apps" 
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "github-actions"
+    directory: "/" 
+    schedule:
+      interval: "daily"
